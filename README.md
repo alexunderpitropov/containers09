@@ -45,6 +45,8 @@ CMD ["nginx", "-g", "daemon off;"]
 docker image build -t mynginx:raw -f Dockerfile.raw .
 ```
 
+![image](https://i.imgur.com/xL1X0ML.jpeg)
+
 ### 2. Удаление неиспользуемых зависимостей и временных файлов
 Создаем файл `Dockerfile.clean`:
 
@@ -70,6 +72,8 @@ docker image build -t mynginx:clean -f Dockerfile.clean .
 docker image list
 ```
 
+![image](https://i.imgur.com/zFH84bo.jpeg)
+
 ### 3. Уменьшение количества слоев
 Создаем файл `Dockerfile.few`:
 
@@ -92,6 +96,8 @@ CMD ["nginx", "-g", "daemon off;"]
 docker image build -t mynginx:few -f Dockerfile.few .
 docker image list
 ```
+
+![image](https://i.imgur.com/RSH263D.jpeg)
 
 ### 4. Минимальный базовый образ
 Создаем файл `Dockerfile.alpine`:
@@ -116,6 +122,8 @@ docker image build -t mynginx:alpine -f Dockerfile.alpine .
 docker image list
 ```
 
+![image](https://i.imgur.com/OBrqPUS.jpeg)
+
 ### 5. Перепаковка образа
 Перепаковываем базовый образ:
 ```bash
@@ -124,6 +132,10 @@ docker container export mynginx | docker image import - mynginx:repack
 docker container rm mynginx
 docker image list
 ```
+
+![image](https://i.imgur.com/RVWrWa6.jpeg)
+
+![image](https://i.imgur.com/0OKZAL7.jpeg)
 
 ### 6. Использование всех методов
 Создаем файл `Dockerfile.min`:
@@ -150,6 +162,10 @@ docker container export mynginx | docker image import - mynginx:min
 docker container rm mynginx
 docker image list
 ```
+
+![image](https://i.imgur.com/FcRW9Od.jpeg)
+
+![image](https://i.imgur.com/s1FlQtM.jpeg)
 
 ## Размер образов
 
